@@ -30,7 +30,7 @@ vagrantfile:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            vflsf_k5ib5nc1qafi:
+            vflsf_hssufj2ygj9n:
                 source: /Users/David/Projects/web
                 target: /var/www
                 sync_type: default
@@ -68,7 +68,6 @@ server:
     install: '1'
     packages:
         - vim
-        - sftp
 users_groups:
     install: '1'
     groups: {  }
@@ -78,8 +77,6 @@ locale:
     settings:
         default_locale: es_ES.UTF-8
         locales:
-            - en_GB.UTF-8
-            - en_US.UTF-8
             - es_ES.UTF-8
 firewall:
     install: '1'
@@ -95,7 +92,7 @@ nginx:
         proxy_buffers: '4 256k'
     upstreams: {  }
     vhosts:
-        nxv_utbtkux6oyow:
+        nxv_gcpus3rm7d9n:
             server_name: awesome.dev
             server_aliases:
                 - www.awesome.dev
@@ -115,7 +112,7 @@ nginx:
             rewrite_to_https: '1'
             spdy: '1'
             locations:
-                nxvl_fsvei3ht9ifl:
+                nxvl_py3ety2jmol7:
                     location: /
                     autoindex: 'off'
                     internal: 'false'
@@ -126,7 +123,7 @@ nginx:
                     fastcgi: ''
                     fastcgi_index: ''
                     fastcgi_split_path: ''
-                nxvl_mooy5u7g8os1:
+                nxvl_eb4s316fg03l:
                     location: '~ \.php$'
                     autoindex: 'off'
                     internal: 'false'
@@ -154,14 +151,14 @@ apache:
         - proxy_fcgi
         - rewrite
     vhosts:
-        av_iqiy87yp65fx:
+        av_h81r4qvpmnia:
             servername: test.dev
             serveraliases:
                 - www.test.dev
             docroot: /var/www/test
             port: '443'
             setenv:
-                - 'APP_ENV dev'
+                - 'ENVIRONMENT DEVEL'
             custom_fragment: ''
             ssl: '0'
             ssl_cert: /opt/certificate/autosign/
@@ -171,7 +168,7 @@ apache:
             ssl_protocol: ''
             ssl_cipher: ''
             directories:
-                avd_ygds8g6iie5a:
+                avd_zxv2ztwp2trs:
                     path: /var/www/test
                     options:
                         - Indexes
@@ -183,18 +180,20 @@ apache:
                         - 'all granted'
                     custom_fragment: ''
                     files_match:
-                        avdfm_48k9m7cm2s9o:
+                        avdfm_9k1505dugrmt:
                             path: \.php$
                             sethandler: 'proxy:fcgi://127.0.0.1:9000'
                             custom_fragment: ''
                             provider: filesmatch
                     provider: directory
-        av_vfzekocajupv:
+        av_e6djna0zxqjy:
             servername: test.dev
             serveraliases:
                 - www.test.dev
             docroot: /var/www/test
             port: '80'
+            setenv:
+                - 'ENVIRONMENT DEVEL'
             custom_fragment: ''
             ssl: '0'
             ssl_cert: ''
@@ -204,7 +203,7 @@ apache:
             ssl_protocol: ''
             ssl_cipher: ''
             directories:
-                avd_a8qtrxgnu59j:
+                avd_tny8o0yb9bpi:
                     path: /var/www/test
                     options:
                         - Indexes
@@ -215,6 +214,12 @@ apache:
                     require:
                         - 'all granted'
                     custom_fragment: ''
+                    files_match:
+                        avdfm_he7k1nswf2qa:
+                            path: \.php$
+                            sethandler: 'proxy:fcgi://127.0.0.1:9000'
+                            custom_fragment: ''
+                            provider: filesmatch
                     provider: directory
 php:
     install: '1'
@@ -225,6 +230,7 @@ php:
             - cli
             - intl
             - mcrypt
+            - curl
         pear: {  }
         pecl: {  }
     ini:
@@ -235,7 +241,7 @@ php:
     fpm_ini:
         error_log: /var/log/php-fpm.log
     fpm_pools:
-        phpfp_j17lyhuhk2dn:
+        phpfp_4agstzxdqga7:
             ini:
                 prefix: www
                 listen: '127.0.0.1:9000'
@@ -308,12 +314,12 @@ mysql:
         override_options: {  }
     adminer: 0
     users:
-        mysqlnu_0se6v8ix8cat:
+        mysqlnu_b692gpij0v9w:
             name: david
             password: admin
     databases: {  }
     grants:
-        mysqlng_upsi24qki8lz:
+        mysqlng_qdp8pee12or1:
             user: david
             table: '*.*'
             privileges:
@@ -326,15 +332,15 @@ mariadb:
         override_options: {  }
     adminer: 0
     users:
-        mariadbnu_8pz6pdnpj4ua:
+        mariadbnu_mbdimebl1xii:
             name: dbuser
             password: '123'
     databases:
-        mariadbnd_ri6ifdg7nwog:
+        mariadbnd_d4zx4xf0qdxg:
             name: dbname
             sql: ''
     grants:
-        mariadbng_vz5em1q59t9y:
+        mariadbng_5js6pwyzy81l:
             user: dbuser
             table: '*.*'
             privileges:
