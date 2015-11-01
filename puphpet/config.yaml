@@ -30,7 +30,7 @@ vagrantfile:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            vflsf_sua1aacenyu1:
+            vflsf_k5ib5nc1qafi:
                 source: /Users/David/Projects/web
                 target: /var/www
                 sync_type: default
@@ -68,6 +68,7 @@ server:
     install: '1'
     packages:
         - vim
+        - sftp
 users_groups:
     install: '1'
     groups: {  }
@@ -94,7 +95,7 @@ nginx:
         proxy_buffers: '4 256k'
     upstreams: {  }
     vhosts:
-        nxv_5j8kn48m8z8p:
+        nxv_utbtkux6oyow:
             server_name: awesome.dev
             server_aliases:
                 - www.awesome.dev
@@ -114,7 +115,7 @@ nginx:
             rewrite_to_https: '1'
             spdy: '1'
             locations:
-                nxvl_i6mt0lwtmaku:
+                nxvl_fsvei3ht9ifl:
                     location: /
                     autoindex: 'off'
                     internal: 'false'
@@ -125,7 +126,7 @@ nginx:
                     fastcgi: ''
                     fastcgi_index: ''
                     fastcgi_split_path: ''
-                nxvl_vulma791g1q9:
+                nxvl_mooy5u7g8os1:
                     location: '~ \.php$'
                     autoindex: 'off'
                     internal: 'false'
@@ -153,25 +154,25 @@ apache:
         - proxy_fcgi
         - rewrite
     vhosts:
-        av_djduryhd64v6:
-            servername: awesome.dev
+        av_iqiy87yp65fx:
+            servername: test.dev
             serveraliases:
-                - www.awesome.dev
-            docroot: /var/www/awesome
+                - www.test.dev
+            docroot: /var/www/test
             port: '443'
             setenv:
                 - 'APP_ENV dev'
             custom_fragment: ''
             ssl: '0'
-            ssl_cert: ''
-            ssl_key: ''
-            ssl_chain: ''
-            ssl_certs_dir: ''
+            ssl_cert: /opt/certificate/autosign/
+            ssl_key: /opt/certificate/autosign/
+            ssl_chain: /opt/certificate/autosign/
+            ssl_certs_dir: /opt/certificate/autosign/
             ssl_protocol: ''
             ssl_cipher: ''
             directories:
-                avd_9mi8u43bacr9:
-                    path: /var/www/awesome
+                avd_ygds8g6iie5a:
+                    path: /var/www/test
                     options:
                         - Indexes
                         - FollowSymlinks
@@ -182,11 +183,38 @@ apache:
                         - 'all granted'
                     custom_fragment: ''
                     files_match:
-                        avdfm_brfiuok2ph3w:
+                        avdfm_48k9m7cm2s9o:
                             path: \.php$
                             sethandler: 'proxy:fcgi://127.0.0.1:9000'
                             custom_fragment: ''
                             provider: filesmatch
+                    provider: directory
+        av_vfzekocajupv:
+            servername: test.dev
+            serveraliases:
+                - www.test.dev
+            docroot: /var/www/test
+            port: '80'
+            custom_fragment: ''
+            ssl: '0'
+            ssl_cert: ''
+            ssl_key: ''
+            ssl_chain: ''
+            ssl_certs_dir: ''
+            ssl_protocol: ''
+            ssl_cipher: ''
+            directories:
+                avd_a8qtrxgnu59j:
+                    path: /var/www/test
+                    options:
+                        - Indexes
+                        - FollowSymlinks
+                        - MultiViews
+                    allow_override:
+                        - All
+                    require:
+                        - 'all granted'
+                    custom_fragment: ''
                     provider: directory
 php:
     install: '1'
@@ -207,7 +235,7 @@ php:
     fpm_ini:
         error_log: /var/log/php-fpm.log
     fpm_pools:
-        phpfp_qs69urxvsbip:
+        phpfp_j17lyhuhk2dn:
             ini:
                 prefix: www
                 listen: '127.0.0.1:9000'
@@ -280,13 +308,13 @@ mysql:
         override_options: {  }
     adminer: 0
     users:
-        mysqlnu_kb13rhqb8s4u:
-            name: root
+        mysqlnu_0se6v8ix8cat:
+            name: david
             password: admin
     databases: {  }
     grants:
-        mysqlng_ngv03hwyf8g0:
-            user: root
+        mysqlng_upsi24qki8lz:
+            user: david
             table: '*.*'
             privileges:
                 - ALL
@@ -298,15 +326,15 @@ mariadb:
         override_options: {  }
     adminer: 0
     users:
-        mariadbnu_3fengv5qy2g4:
+        mariadbnu_8pz6pdnpj4ua:
             name: dbuser
             password: '123'
     databases:
-        mariadbnd_9mpq0hks2l8b:
+        mariadbnd_ri6ifdg7nwog:
             name: dbname
             sql: ''
     grants:
-        mariadbng_fxtdsglmtueo:
+        mariadbng_vz5em1q59t9y:
             user: dbuser
             table: '*.*'
             privileges:
