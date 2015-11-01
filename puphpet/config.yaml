@@ -30,7 +30,7 @@ vagrantfile:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            vflsf_hssufj2ygj9n:
+            vflsf_egryxapp3hpv:
                 source: /Users/David/Projects/web
                 target: /var/www
                 sync_type: default
@@ -86,58 +86,6 @@ cron:
     jobs: {  }
 nginx:
     install: '0'
-    settings:
-        default_vhost: 1
-        proxy_buffer_size: 128k
-        proxy_buffers: '4 256k'
-    upstreams: {  }
-    vhosts:
-        nxv_gcpus3rm7d9n:
-            server_name: awesome.dev
-            server_aliases:
-                - www.awesome.dev
-            www_root: /var/www/awesome
-            listen_port: '80'
-            index_files:
-                - index.html
-                - index.htm
-                - index.php
-            client_max_body_size: 1m
-            ssl: '0'
-            ssl_cert: ''
-            ssl_key: ''
-            ssl_port: '443'
-            ssl_protocols: ''
-            ssl_ciphers: ''
-            rewrite_to_https: '1'
-            spdy: '1'
-            locations:
-                nxvl_py3ety2jmol7:
-                    location: /
-                    autoindex: 'off'
-                    internal: 'false'
-                    try_files:
-                        - $uri
-                        - $uri/
-                        - /index.php$is_args$args
-                    fastcgi: ''
-                    fastcgi_index: ''
-                    fastcgi_split_path: ''
-                nxvl_eb4s316fg03l:
-                    location: '~ \.php$'
-                    autoindex: 'off'
-                    internal: 'false'
-                    try_files:
-                        - $uri
-                        - $uri/
-                        - /index.php$is_args$args
-                    fastcgi: '127.0.0.1:9000'
-                    fastcgi_index: index.php
-                    fastcgi_split_path: '^(.+\.php)(/.*)$'
-                    fast_cgi_params_extra:
-                        - 'SCRIPT_FILENAME $request_filename'
-                        - 'APP_ENV dev'
-    proxies: {  }
 apache:
     install: '1'
     settings:
@@ -151,7 +99,7 @@ apache:
         - proxy_fcgi
         - rewrite
     vhosts:
-        av_h81r4qvpmnia:
+        av_os3q7ami57jo:
             servername: test.dev
             serveraliases:
                 - www.test.dev
@@ -168,7 +116,7 @@ apache:
             ssl_protocol: ''
             ssl_cipher: ''
             directories:
-                avd_zxv2ztwp2trs:
+                avd_ha1fsb9fgl30:
                     path: /var/www/test
                     options:
                         - Indexes
@@ -180,13 +128,13 @@ apache:
                         - 'all granted'
                     custom_fragment: ''
                     files_match:
-                        avdfm_9k1505dugrmt:
+                        avdfm_nvgjmq3unikd:
                             path: \.php$
                             sethandler: 'proxy:fcgi://127.0.0.1:9000'
                             custom_fragment: ''
                             provider: filesmatch
                     provider: directory
-        av_e6djna0zxqjy:
+        av_mj09te6rwws3:
             servername: test.dev
             serveraliases:
                 - www.test.dev
@@ -203,7 +151,7 @@ apache:
             ssl_protocol: ''
             ssl_cipher: ''
             directories:
-                avd_tny8o0yb9bpi:
+                avd_2icawxs5f308:
                     path: /var/www/test
                     options:
                         - Indexes
@@ -215,7 +163,7 @@ apache:
                         - 'all granted'
                     custom_fragment: ''
                     files_match:
-                        avdfm_he7k1nswf2qa:
+                        avdfm_wojxri4oo2up:
                             path: \.php$
                             sethandler: 'proxy:fcgi://127.0.0.1:9000'
                             custom_fragment: ''
@@ -241,7 +189,7 @@ php:
     fpm_ini:
         error_log: /var/log/php-fpm.log
     fpm_pools:
-        phpfp_4agstzxdqga7:
+        phpfp_y85xzkaq00h5:
             ini:
                 prefix: www
                 listen: '127.0.0.1:9000'
@@ -261,26 +209,12 @@ xdebug:
         xdebug.remote_port: '9000'
 blackfire:
     install: '0'
-    settings:
-        server_id: ''
-        server_token: ''
-        agent:
-            http_proxy: ''
-            https_proxy: ''
-            log_file: stderr
-            log_level: '1'
-        php:
-            agent_timeout: '0.25'
-            log_file: ''
-            log_level: '1'
 xhprof:
     install: '0'
 wpcli:
     install: '0'
-    version: v0.19.0
 drush:
     install: '0'
-    version: 6.3.0
 ruby:
     install: '1'
     versions: {  }
@@ -290,123 +224,43 @@ python:
     versions: {  }
 nodejs:
     install: '0'
-    npm_packages: {  }
 hhvm:
     install: '0'
-    nightly: 0
-    composer: '1'
-    composer_home: ''
-    settings: {  }
-    server_ini:
-        hhvm.server.host: 127.0.0.1
-        hhvm.server.port: '9000'
-        hhvm.log.use_log_file: '1'
-        hhvm.log.file: /var/log/hhvm/error.log
-    php_ini:
-        display_errors: 'On'
-        error_reporting: '-1'
-        date.timezone: UTC
 mysql:
     install: '1'
     settings:
-        version: '5.6'
-        root_password: '123'
+        version: '5.5'
+        root_password: 'admin'
         override_options: {  }
     adminer: 0
     users:
-        mysqlnu_b692gpij0v9w:
+        mysqlnu_3icbpjtysvv2:
             name: david
             password: admin
     databases: {  }
     grants:
-        mysqlng_qdp8pee12or1:
+        mysqlng_nuhcsrtf6i3y:
             user: david
             table: '*.*'
             privileges:
                 - ALL
 mariadb:
     install: '0'
-    settings:
-        version: '10.0'
-        root_password: '123'
-        override_options: {  }
-    adminer: 0
-    users:
-        mariadbnu_mbdimebl1xii:
-            name: dbuser
-            password: '123'
-    databases:
-        mariadbnd_d4zx4xf0qdxg:
-            name: dbname
-            sql: ''
-    grants:
-        mariadbng_5js6pwyzy81l:
-            user: dbuser
-            table: '*.*'
-            privileges:
-                - ALL
 postgresql:
     install: '0'
-    settings:
-        global:
-            encoding: UTF8
-            version: '9.3'
-        server:
-            postgres_password: '123'
-    databases: {  }
-    users: {  }
-    grants: {  }
-    adminer: 0
 mongodb:
     install: '0'
-    settings:
-        auth: 1
-        bind_ip: 127.0.0.1
-        port: '27017'
-    databases: {  }
 redis:
     install: '0'
-    settings:
-        conf_port: '6379'
 sqlite:
     install: '0'
-    adminer: 0
-    databases: {  }
 mailcatcher:
     install: '0'
-    settings:
-        smtp_ip: 0.0.0.0
-        smtp_port: 1025
-        http_ip: 0.0.0.0
-        http_port: '1080'
-        mailcatcher_path: /usr/local/rvm/wrappers/default
-        from_email_method: inline
 beanstalkd:
     install: '0'
-    settings:
-        listenaddress: 0.0.0.0
-        listenport: '11300'
-        maxjobsize: '65535'
-        maxconnections: '1024'
-        binlogdir: /var/lib/beanstalkd/binlog
-        binlogfsync: null
-        binlogsize: '10485760'
-    beanstalk_console: 0
 rabbitmq:
     install: '0'
-    settings:
-        port: '5672'
-    users: {  }
-    vhosts: {  }
-    plugins: {  }
 elastic_search:
     install: '0'
-    settings:
-        version: 1.4.1
-        java_install: true
 solr:
     install: '0'
-    settings:
-        version: 4.10.2
-        port: '8984'
-
