@@ -179,6 +179,7 @@ php:
             - intl
             - mcrypt
             - curl
+            - mysql
         pear: {  }
         pecl: {  }
     ini:
