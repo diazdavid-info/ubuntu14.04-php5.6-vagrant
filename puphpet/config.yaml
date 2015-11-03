@@ -227,23 +227,7 @@ nodejs:
 hhvm:
     install: '0'
 mysql:
-    install: '1'
-    settings:
-        version: '5.5'
-        root_password: 'admin'
-        override_options: {  }
-    adminer: 0
-    users:
-        mysqlnu_3icbpjtysvv2:
-            name: david
-            password: admin
-    databases: {  }
-    grants:
-        mysqlng_nuhcsrtf6i3y:
-            user: david
-            table: '*.*'
-            privileges:
-                - ALL
+    install: '0'
 mariadb:
     install: '0'
 postgresql:
